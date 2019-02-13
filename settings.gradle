@@ -1,0 +1,9 @@
+/*
+ * © Copyright - Lars Artmann aka. LartyHD 2018.
+ */
+
+rootProject.name = "Maintenance"
+
+include("velocity")
+
+findProject(":velocity")?.name = "${rootProject.name}-Velocity"
