@@ -20,7 +20,7 @@ subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'idea'
 
-    group = "de.astride.maintenance"
+    group = "de.astride"
     version = "1.0-SNAPSHOT"
     libsDirName = "libraries"
 
