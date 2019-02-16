@@ -40,7 +40,9 @@ class ConfigProvider(var directory: File) {
         /* Values */
         val versionName: String by lazy { config["VerisonName"]?.asString ?: "CosmicProxy" }
         val description: Component by lazy {
-            ComponentSerializers.LEGACY.deserialize(config["Description"]?.asString ?: "§cCosmicSky.net | Maintenance")
+            ComponentSerializers.LEGACY.deserialize(
+                config["Description"]?.asString?.replace("\\n", "\n") ?: "§cCosmicSky.net | Maintenance"
+            )
         }
 
     }
