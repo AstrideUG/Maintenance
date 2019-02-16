@@ -4,6 +4,7 @@
 
 package de.astride.maintenance
 
+import com.google.inject.Inject
 import com.velocitypowered.api.event.EventManager
 import com.velocitypowered.api.event.Subscribe
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent
@@ -28,7 +29,7 @@ import java.nio.file.Path
     url = "Astride.de",
     authors = ["Lars Artmann | LartyHD"]
 )
-class Maintenance private constructor(
+class Maintenance @Inject private constructor(
     private val eventManager: EventManager,
     @DataDirectory private val path: Path,
     private val logger: Logger
