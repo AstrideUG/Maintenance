@@ -9,5 +9,5 @@
   ],
   "dependencies": [
   ],
-  "main": "de.astride.maintenance.Maintenance"
+  "main": "de.astride.maintenance.MaintenancePlugin"
 }

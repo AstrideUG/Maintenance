@@ -16,6 +16,7 @@ class ConfigProvider(var directory: File) {
     /* SubClass */
     val config by lazy { Config() }
     val motd by lazy { Motd() }
+    val webInterface by lazy { WebInterface() }
 
     inner class Config internal constructor() {
 
@@ -25,9 +26,10 @@ class ConfigProvider(var directory: File) {
         /* Values */
         val isActive by lazy { config["IsActive"]?.asBoolean ?: false }
         val motdFileName by lazy { config["MotdFileName"]?.asString ?: "motd.json" }
+        val webInterfaceFileName by lazy { config["WebInterfaceFileName"]?.asString ?: "web-interface.json" }
         val byPassPermission by lazy { config["ByPassPermission"]?.asString ?: "maintenance.bypass" }
         val kickMessage: Component by lazy {
-            ComponentSerializers.LEGACY.deserialize(config["KickMessage"]?.asString ?: "§cCosmicSky.net | Maintenance")
+            ComponentSerializers.LEGACY.deserialize(config["KickMessage"]?.asString ?: "§cCosmicSky.net | Registry")
         }
 
     }
@@ -41,9 +43,20 @@ class ConfigProvider(var directory: File) {
         val versionName: String by lazy { config["VerisonName"]?.asString ?: "CosmicProxy" }
         val description: Component by lazy {
             ComponentSerializers.LEGACY.deserialize(
-                config["Description"]?.asString?.replace("\\n", "\n") ?: "§cCosmicSky.net | Maintenance"
+                config["Description"]?.asString?.replace("\\n", "\n") ?: "§cCosmicSky.net | Registry"
             )
         }
+
+    }
+
+    inner class WebInterface internal constructor() {
+
+        /* Main */
+        private val configData by lazy { ConfigData(directory, this@ConfigProvider.config.webInterfaceFileName) }
+        private val config by lazy { GsonService.loadAsJsonObject(configData) }
+        /* Values */
+        val isActive by lazy { config["IsActive"]?.asBoolean ?: false }
+        val port by lazy { config["Port"]?.asInt ?: 4543 }
 
     }
 
