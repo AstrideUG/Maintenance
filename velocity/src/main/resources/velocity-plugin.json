@@ -1,0 +1,13 @@
+{
+  "id": "maintenance",
+  "name": "Maintenance",
+  "version": "1.0-SNAPSHOT",
+  "description": "Maintenance",
+  "url": "Astride.de",
+  "authors": [
+    "Lars Artmann | LartyHD"
+  ],
+  "dependencies": [
+  ],
+  "main": "de.astride.maintenance.MaintenancePlugin"
+}

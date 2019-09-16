@@ -1,0 +1,6 @@
+{
+  "IsActive": true,
+  "MotdFileName": "motd.json",
+  "ByPassPermission": "maintenance.bypass",
+  "KickMessage": "§aWir sind aktiv am verbessern des Servers,\n§adein §fCosmicSky.net §aTeam\n\n§aMehr Infos auf §fdiscord.comsicsky.net"
+}
